@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>senai.inlock.webApi.tarde</name>
+    </assembly>
+    <members>
+        <member name="M:senai.inlock.webApi.tarde.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Método para buscar usuário por email e senha
+            </summary>
+            <param name="email">email do usuário</param>
+            <param name="senha">senha do usuário</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
