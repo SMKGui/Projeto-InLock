@@ -2,7 +2,7 @@
 {
     public class TiposUsuarioDomain
     {
-        public int IdTiposUsuario { get; set; }
+        public int IdTipoUsuario { get; set; }
 
         public string Titulo { get; set; }
     }

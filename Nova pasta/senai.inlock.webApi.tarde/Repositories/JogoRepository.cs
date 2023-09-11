@@ -13,7 +13,7 @@ namespace senai.inlock.webApi.tarde.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //Declara a query que sera executada
-                string queryInsert = "INSERT INTO Jogo(Nome, Descricao, DataLancamento, Valor, IdEstudio) VALUES (@Nome, @Descricao, @DataLancamento, @Valor, @IdEstudio)";
+                string queryInsert = "INSERT INTO Jogo(IdEstudio, Nome, Descricao, DataLancamento, Valor) VALUES (@IdEstudio, @Nome, @Descricao, @DataLancamento, @Valor)";
 
 
 
@@ -42,7 +42,7 @@ namespace senai.inlock.webApi.tarde.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
 
-                string querySelectAll = "SELECT Jogo.IdJogo, Jogo.IdEstudio, Jogo.Nome, Jogo.Descricao, Jogo.DataLancamento, Jogo.Valor FROM Jogo INNER JOIN Estudio ON Jogo.IdEstudio = Estudio.IdEstudio";
+                string querySelectAll = "SELECT Jogo.IdJogo, Jogo.IdEstudio, Jogo.Nome, Jogo.Descricao, Jogo.DataLancamento, Jogo.Valor, Estudio.Nome AS EstudioNome FROM Jogo INNER JOIN Estudio ON Jogo.IdEstudio = Estudio.IdEstudio";
 
                 con.Open();
 
@@ -68,7 +68,7 @@ namespace senai.inlock.webApi.tarde.Repositories
                             Estudio = new EstudioDomain()
                             {
                                 IdEstudio = Convert.ToInt32(rdr["IdEstudio"]),
-                                Nome = rdr["Nome"].ToString()
+                                Nome = rdr["EstudioNome"].ToString()
                             }
                         };
                         ListaJogos.Add(jogo);
